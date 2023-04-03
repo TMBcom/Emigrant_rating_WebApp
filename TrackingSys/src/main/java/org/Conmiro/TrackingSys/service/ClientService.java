@@ -2,6 +2,8 @@ package org.Conmiro.TrackingSys.service;
 
 import org.Conmiro.TrackingSys.models.ClientModel;
 
+import java.util.List;
+
 public interface ClientService {
     void create(ClientModel client);
 
