@@ -1,16 +1,19 @@
-package org.Conmiro.TrackingSys.models;
+package org.Conmiro.TrackingSys.Models;
+
+import java.util.List;
+
 
 public class ClientModel {
-    private Integer id;
+    private int id;
     private String name;
     private String email;
     private String phone;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,4 +40,6 @@ public class ClientModel {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }
+

@@ -1,6 +1,6 @@
 package org.Conmiro.TrackingSys.Controllers;
 
-import org.Conmiro.TrackingSys.exeptions.NotFoundException;
+import org.Conmiro.TrackingSys.Exeptions.NotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
