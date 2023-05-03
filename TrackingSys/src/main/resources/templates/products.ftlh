@@ -10,9 +10,10 @@
 <body>
 Hello, my name is Conmiro
 <h1>BUY</h1><hr>
+
 <#list products as product>
     <div>
-        <p><b>${product.title}</b> ${product.price} руб| <a href="/product/${product.id}"> FFFF....</a></p>
+        <p><b>${product.title}</b> ${product.price} руб| <a href="/product/${product.id}"> Подробнее....</a></p>
     </div>
 </#list>
 

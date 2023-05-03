@@ -1,0 +1,25 @@
+---
+- id: 1
+  title: "PS5"
+  description: "Simple Dimple"
+  price: 3500
+  city: "Moscow"
+  author: "Ivan"
+- id: 2
+  title: "Battery"
+  description: "Dimple"
+  price: 500
+  city: "Novgorod"
+  author: "Sasha"
+- id: 3
+  title: "Display"
+  description: "1920x1080 resolution"
+  price: 22000
+  city: "Kasan"
+  author: "Oleg"
+- id: 4
+  title: "Display"
+  description: "1920x1080"
+  price: 22000
+  city: "Tula"
+  author: "Slava"

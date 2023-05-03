@@ -1,30 +1,28 @@
 package org.Conmiro.TrackingSys.Service;
 
 import org.Conmiro.TrackingSys.Models.ProductModel;
+import org.Conmiro.TrackingSys.Repos.IProductFileWorker;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductService {
-    private List<ProductModel> products = new ArrayList<>();
-    private long ID = 0;
+public class ProductService implements IProductService{
+    @Autowired
+    private IProductFileWorker ProductDataRepository;
 
-    {
-        products.add(new ProductModel(++ID,"PS5", "SimpleDimple", 6700, "Moscow", "Petia"));
-        products.add(new ProductModel(++ID,"Battery", "Dimple", 200, "Peter", "Ivan"));
-    }
+    @Async
+    public List<ProductModel> listProducts(){return ProductDataRepository.getClientData();}
 
-    public List<ProductModel> listProducts(){return products;}
-
+    @Async
     public void saveProduct(ProductModel product){
-        product.setId(++ID);
-        products.add(product);
+        ProductDataRepository.add(product);
     }
-
-    public void deleteProducts(Long id){
-        products.removeIf(product -> product.getId().equals(id));
+    @Async
+    public void deleteProducts(long id){
+        ProductDataRepository.delete(id);
     }
 
 }

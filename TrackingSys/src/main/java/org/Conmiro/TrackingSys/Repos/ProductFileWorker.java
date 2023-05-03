@@ -3,7 +3,7 @@ package org.Conmiro.TrackingSys.Repos;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import org.Conmiro.TrackingSys.Models.ClientModel;
+import org.Conmiro.TrackingSys.Models.ProductModel;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
@@ -12,18 +12,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Repository
-public class FileWorker implements IFileWorker{
-    private List<ClientModel> ClientDataList = new ArrayList<>();
-    private static String YamlFile_Path = "D:\\UniPractice\\TrackingSys\\src\\main\\resources\\TrackingInfo.yml";
+public class ProductFileWorker implements  IProductFileWorker {
+    private List<ProductModel> ProductsDataList = new ArrayList<>();
+    private static String YamlFile_Path = "D:\\UniPractice\\TrackingSys\\src\\main\\resources\\ProductInfo.yml";
 
     ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-    private int idCount=1;
-    public FileWorker() throws IOException {
+    private long idCount=1;
+    public ProductFileWorker() throws IOException {
         try
         {
-            ClientDataList = objectMapper.readValue(new File(YamlFile_Path), new TypeReference<>() {});
-            for (ClientModel ClientData: ClientDataList)
+            ProductsDataList = objectMapper.readValue(new File(YamlFile_Path), new TypeReference<>() {});
+            for (ProductModel ClientData: ProductsDataList)
             {
                 if (ClientData.getId() >= idCount)
                 {
@@ -38,15 +39,15 @@ public class FileWorker implements IFileWorker{
     }
 
     @Async
-    public List<ClientModel> getClientData()
+    public List<ProductModel> getClientData()
     {
-        return ClientDataList;
+        return ProductsDataList;
     }
 
     @Async
-    public ClientModel findClientById(Integer id)
+    public ProductModel findClientById(long id)
     {
-        for (ClientModel clientData : ClientDataList)
+        for (ProductModel clientData : ProductsDataList)
         {
             if (clientData.getId() == id)
             {
@@ -57,30 +58,30 @@ public class FileWorker implements IFileWorker{
     }
 
     @Async
-    public void add(ClientModel clientData)
+    public void add(ProductModel clientData)
     {
         clientData.setId(idCount++);
-        ClientDataList.add(clientData);
+        ProductsDataList.add(clientData);
         save();
     }
 
     @Async
-    public void update(ClientModel clientData)
+    public void update(ProductModel clientData)
     {
-        for (int i = 0; i < ClientDataList.size(); i++)
+        for (int i = 0; i < ProductsDataList.size(); i++)
         {
-            if (ClientDataList.get(i).getId() == clientData.getId())
+            if (ProductsDataList.get(i).getId() == clientData.getId())
             {
-                ClientDataList.set(i, clientData);
+                ProductsDataList.set(i, clientData);
                 save();
             }
         }
     }
 
     @Async
-    public void delete(Integer id)
+    public void delete(long id)
     {
-        ClientDataList.removeIf(wagon -> wagon.getId() == id);
+        ProductsDataList.removeIf(wagon -> wagon.getId() == id);
         save();
     }
 
@@ -88,10 +89,11 @@ public class FileWorker implements IFileWorker{
     {
         try
         {
-            objectMapper.writeValue(new File(YamlFile_Path), ClientDataList);
+            objectMapper.writeValue(new File(YamlFile_Path), ProductsDataList);
         } catch (IOException e)
         {
             e.printStackTrace();
         }
     }
+
 }
