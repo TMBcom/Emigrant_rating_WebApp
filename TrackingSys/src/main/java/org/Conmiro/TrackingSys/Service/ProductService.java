@@ -12,9 +12,9 @@ import java.util.List;
 public class ProductService implements IProductService{
     @Autowired
     private IProductFileWorker ProductDataRepository;
-
     @Async
-    public List<ProductModel> listProducts(){return ProductDataRepository.getClientData();}
+    public List<ProductModel> listProducts(){
+        return ProductDataRepository.getClientData();}
 
     @Async
     public void saveProduct(ProductModel product){
@@ -25,4 +25,12 @@ public class ProductService implements IProductService{
         ProductDataRepository.delete(id);
     }
 
+    @Async
+    public ProductModel getProductById(long id){
+        return ProductDataRepository.findClientById(id);
+    }
+    @Async
+    public void updateProduct(ProductModel product){
+        ProductDataRepository.update(product);
+    }
 }

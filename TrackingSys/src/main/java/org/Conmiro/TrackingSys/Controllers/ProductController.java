@@ -21,6 +21,7 @@ public class ProductController {
     }
     @GetMapping("/product/{id}")
     public String productInfo(@PathVariable long id, Model model) {
+        model.addAttribute("product", productService.getProductById(id));
         return "product-info";
     }
     @PostMapping("/product/create")
@@ -30,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping("product/delete/{id}")
-    public String deleteProduct(@PathVariable long id){
+    public String deleteProduct(@PathVariable long id, ProductModel product){
         productService.deleteProducts(id);
         return "redirect:/";
     }

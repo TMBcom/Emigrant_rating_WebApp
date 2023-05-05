@@ -13,4 +13,7 @@ public interface IProductService {
 
     public void deleteProducts(long id);
 
+    public ProductModel getProductById(long id);
+
+    public void updateProduct(ProductModel product);
 }
