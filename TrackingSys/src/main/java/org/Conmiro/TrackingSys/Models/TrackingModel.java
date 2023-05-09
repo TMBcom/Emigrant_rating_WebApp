@@ -7,13 +7,14 @@ import lombok.Data;
 
 @Data
 
-public class ProductModel {
+public class TrackingModel {
 
     private long id;
     private String title;
     private String description;
-    private int price;
-    private String city;
+    private String citySender;
+    private String cityRecipient;
     private String author;
+    private long dateOfDispatch;
 
 }
