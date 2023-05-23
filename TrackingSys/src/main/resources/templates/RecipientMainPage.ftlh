@@ -14,6 +14,8 @@
     <div>
         <p><b>${Track.title}</b>| <a href="/RecipientMainPage/${Track.id}"> Подробнее....</a></p>
     </div>
+<#else>
+<p>Ничего нету из заказов</p>
     </#list>
 </form>
 <hr>

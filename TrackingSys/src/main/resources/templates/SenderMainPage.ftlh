@@ -16,7 +16,7 @@
     Город отправителя: <input type="text", name="citySender"><br><br>
     Город получателя: <input type="text", name="cityRecipient"><br><br>
     Имя автора: <input type="text", name="author"><br><br>
-    Дата  отправки: <input type="number", name="dateOfDispatch"><br><br>
+    Дата  отправки: <input type="date", name="dateOfDispatch"><br><br>
     <input type="submit" value="Добавить отправку"/>
 </form>
 <hr>

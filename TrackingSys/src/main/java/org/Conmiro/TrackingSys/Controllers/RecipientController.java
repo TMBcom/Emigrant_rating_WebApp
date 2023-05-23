@@ -24,6 +24,11 @@ public class RecipientController {
         trackingService.deleteTrack(id);
         return "redirect:/RecipientMain";
     }
+    @PostMapping("RecipientMain/update/{id}")
+    public String updateTracking(@PathVariable long id, TrackingModel product){
+        trackingService.updateTrack(product);
+        return "redirect:/RecipientMainPage/{id}";
+    }
     @GetMapping("/RecipientMainPage/{id}")
     public String TrackingInfo(@PathVariable long id, Model model) {
         model.addAttribute("Track", trackingService.getTrackById(id));

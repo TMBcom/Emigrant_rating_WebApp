@@ -4,6 +4,8 @@ package org.Conmiro.TrackingSys.Models;
 
 import lombok.Data;
 
+import java.util.Date;
+
 
 @Data
 
@@ -15,6 +17,6 @@ public class TrackingModel {
     private String citySender;
     private String cityRecipient;
     private String author;
-    private long dateOfDispatch;
+    private String dateOfDispatch;
 
 }

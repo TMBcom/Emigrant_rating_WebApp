@@ -14,9 +14,19 @@
 <b>Город    получателя: </b>${Track.cityRecipient}<br>
 <b>Автор   отправления: </b>${Track.author}<br>
 <b>Дата  отправки: </b> ${Track.dateOfDispatch}<br>
-
 <hr>
-<h3>Удалить товар</h3>
+<h3>Изменить информацию о заказе</h3>
+<form action="/RecipientMain/update/${Track.id}" method="post">
+    Название отправления: <input type="text", name="title"><br><br>
+    Описание отправления: <input type="text", name="description"><br><br>
+    Город отправителя: <input type="text", name="citySender"><br><br>
+    Город получателя: <input type="text", name="cityRecipient"><br><br>
+    Имя автора: <input type="text", name="author"><br><br>
+    Дата  отправки: <input type="date", name="dateOfDispatch"><br><br>
+    <input type="submit" value="Изменить информацию"/>
+</form>
+<hr>
+<h3>Удалить заказ</h3>
 <form action="/RecipientMain/delete/${Track.id}" method="post">
     <input type="submit" value="Удалить товар"/>
 </form>
