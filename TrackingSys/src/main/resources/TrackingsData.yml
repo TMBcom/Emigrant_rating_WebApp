@@ -1,8 +1,0 @@
----
-- id: 1
-  title: "Планшент"
-  description: "Отправил подарок тебе"
-  citySender: "Самара"
-  cityRecipient: "Новгород"
-  author: "Иван"
-  dateOfDispatch: "2023-05-22"

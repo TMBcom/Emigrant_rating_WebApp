@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/TrackingSys/pom.xml" />
+        <option value="$PROJECT_DIR$/EmigrantRatingWeb/pom.xml" />
       </list>
     </option>
   </component>
