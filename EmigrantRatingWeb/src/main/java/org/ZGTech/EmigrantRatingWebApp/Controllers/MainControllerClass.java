@@ -1,12 +1,20 @@
 package org.ZGTech.EmigrantRatingWebApp.Controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+import org.ZGTech.EmigrantRatingWebApp.Models.TempModelClass;
+import org.ZGTech.EmigrantRatingWebApp.Repos.ITempRepoClass;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class MainControllerClass {
-    @GetMapping("/")
-    public String Index() {
-        return "ServiceRatesPage";}
+    @Autowired
+    ITempRepoClass repo;
+@PostMapping("/addPerson")
+    public void addPerson(@RequestBody TempModelClass person){
+    repo.save(person);
+}
+
 }
